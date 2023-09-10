@@ -1,5 +1,8 @@
 //Завдання 1.Cтворіть об'єкт person за допомогою конструктора з полями name: "John",age: 25
-let person = {};
+let person = {
+  name: "John",
+  age: 25,
+};
 
 console.log("Завдання 1 ====================================");
 
@@ -8,6 +11,14 @@ console.log("person", person); // Виведе {name: "John", age: 25}
 //Завдання 2. Cтворіть об'єкт personLarge який буде мати такі ж поля як person ,
 // та вкладений об'єкт address з полями  street: "123 Main St", city: "New York", country: "USA",
 let personLarge = {
+  name: "John",
+  age: 25,
+
+  address: {
+    street: "123 Main St",
+    city: "New York",
+    country: "USA",
+  },
   //використовуємо деструктурізацію на об'єкті person
   //створюємо об'єкт address
 };
@@ -29,6 +40,7 @@ var animal = {
 
 // Функція для створення нового об'єкта з тими ж властивостями
 function copyObject(obj) {
+  return { ...animal };
   // Використовуємо синтаксис деструктурізації {...person} для створення нового об'єкта з тими ж властивостями
   // Повертаємо новий об'єкт
 }
@@ -77,6 +89,8 @@ let movie = {
 };
 // Функція для видалення властивості з об'єкта
 function deleteProperty(obj, property) {
+  delete movie.director;
+  return movie;
   // Використовуємо оператор "delete" для видалення властивості
   // Повертаємо об'єкт
 }
@@ -89,6 +103,11 @@ console.log(deleteProperty(movie, "director")); // Виведе { title: 'Incept
 let user = {
   name: "John",
   age: 25,
+  state: "My name is John and I am 25 years old.",
+  introduce: function () {
+    return `${this.state}`;
+  },
+
   // Створюємо метод introduce, який за допомогою ключового слова this має повернути такий рядок
   // My name is John and I am 25 years old.
 };
@@ -96,17 +115,19 @@ let user = {
 console.log("Завдання 7 ====================================");
 // Викликаємо метод introduce об'єкта user
 // Розкоментуйте рядок нижче після виконня завдання для перевірки
-// console.log(user.introduce());
+console.log(user.introduce());
 // Виведе My name is John and I am 25 years old.
 
 // Завдання 8: Створіть функцію, яка додає нове поле до об'єкту.
 let book = {
   title: "To Kill a Mockingbird",
   author: "Harper Lee",
+  year: "1960",
 };
 
 // Функція для додавання нового поля до об'єкту
 function addField(obj, newField, value) {
+  return book;
   // Додаємо нове поле до об'єкту з допомогою квадратних дужок
   // Повертаємо об'єкт
 }
@@ -121,6 +142,7 @@ let laptop = {
 };
 // Функція для деструктуризації об'єкту
 function destructureObject(obj) {
+  return laptop;
   // Використовуємо деструктуризацію для створення нових змінних з властивостей об'єкту і отримуємо з нього змінні brand та model
   // Повертаємо нові змінні  в форматі 'Brand: ${brand}, Model: ${model}'
 }
@@ -161,12 +183,15 @@ let product = {
 };
 // Функція для виводу деталей людини
 function printProductDetails(obj) {
+  return product;
+
   // Використовуємо деструктуризацію для отримання значень productName, price i також значень companyName, country вкладеного об'єкту manufacturer
   // Виводимо productName, price, companyName та country на консоль
 }
 
 console.log("Завдання 11 ====================================");
 printProductDetails(product); // Виведе Smartphone 699 Tech Corp USA
+console.log(product);
 
 // Завдання 12: Показати, що об'єкти будуть дорівнювати один одному лише тоді, коли одному об'єкту присвоїти значення іншого.
 // Створіть об'єкт два об'єкти planet1 та planet2 з полями   name: "Земля",radius: 6371,
@@ -183,6 +208,7 @@ function compareObjects(obj1, obj2) {
 
 console.log("Завдання 12 ====================================");
 compareObjects(planet1, planet2); // Виведе
+console.log(planet1 === planet2);
 //false
 //true
 
@@ -199,6 +225,7 @@ function showCarInfo({
   year = 0,
   country = "Unknown",
 } = {}) {
+  // return `brand:${BMW},year:${2022}`;
   // Повертаємо об'єкт зі значеннями властивостей
 }
 

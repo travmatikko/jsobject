@@ -100,7 +100,6 @@ let movie = {
 function deleteProperty(obj, property) {
   delete movie.director;
   return movie;
-
   // Використовуємо оператор "delete" для видалення властивості
   // Повертаємо об'єкт
 }
@@ -130,6 +129,7 @@ console.log(user.introduce());
 let book = {
   title: "To Kill a Mockingbird",
   author: "Harper Lee",
+  year: "1960",
 };
 
 // Функція для додавання нового поля до об'єкту
@@ -232,6 +232,7 @@ function compareObjects(obj1, obj2) {
 
 console.log("Завдання 12 ====================================");
 compareObjects(planet1, planet2); // Виведе
+console.log(planet1 === planet2);
 //false
 //true
 
